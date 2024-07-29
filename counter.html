@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count App</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+        }
+        .count-container{
+            border: 2px solid black;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            padding: 20px;
+            gap: 20px;
+            border-radius: 20px;
+        }
+        #count-el{
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border:1px solid black;
+            border-radius: 10px;
+        }
+        #count-el:hover{
+            border: 2px solid yellow;
+        }
+        #save-el{
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border:1px solid black;
+            border-radius: 10px;
+        }
+        #save-el:hover{
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="count-container">
+        <h1>Counter</h1>
+        <h1 id="display">0</h1>
+        <button id="count-el" onclick="handleCount()">Count</button>
+        <button id="save-el" onclick="handleSave()">Save</button>
+        <p id="output-el">previous entries:-</p>
+    </div>
+    <script>
+        let displayFig = document.getElementById("display")
+        let saveEl = document.getElementById("save-el")
+        let output = document.getElementById("output-el")
+        //let countEl = document.getElementById("count-el")
+        let count = 0;
+
+        const handleCount = () =>{
+            count = count + 1
+            //console.log(count)
+            displayFig.textContent = count
+        }
+        function handleSave(){
+            //console.log(count)
+            let countStr = count + " - "
+            //console.log(countStr)
+            output.textContent = output.textContent + countStr
+            count = 0
+            displayFig.textContent = count
+
+            // console.log(typeof displayFig.textContent)
+        }
+    </script>
+</body>
+</html>
